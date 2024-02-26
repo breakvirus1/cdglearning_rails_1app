@@ -1,6 +1,6 @@
 class LabsController < ApplicationController
   def index
-
+    @laba=Lab.all
   end
 
   def new
@@ -13,12 +13,12 @@ class LabsController < ApplicationController
 
   def create
     # render plain: params[:post].inspect
-    @laba=Lab.new(params[:post])
+    @laba=Lab.new(labs_params)
     @laba.save
-    redirect to @laba
+    redirect_to @laba
   end
 
   private def labs_params
-    params.require(:post).permit(:title, :body)
+    params.require(:labs).permit(:title, :body)
   end
 end
