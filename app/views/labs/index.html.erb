@@ -1,5 +1,10 @@
-<h1>Список лаборторных</h1>
-<%@laba.each do |lab|%>
-    <h3><%=lab.title%></h3>
-    <p><%=lab.body%></p>
-<%end%>
+<h1>Список лабораторных</h1>
+<div class="container">
+        <%@laba.each do |lab|%>
+            <div class="well">
+                <h4><%=lab.title%></h4>
+                <p><%=lab.body%></p>
+                <%= link_to "Подробнее", labs_path(lab.id), :class => "btn btn-blue" %>
+            </div>
+        <%end%>
+</div>

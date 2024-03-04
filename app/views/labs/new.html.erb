@@ -1,18 +1,23 @@
 <h2>Добавление новой лабы</h2>
-<%= form_for :labs , url: labs_path do |f|%>
+<%= form_for :labs , url: labs_path(query: @laba) do |f|%>
+    <% if @laba.errors.any? %>
+        <% @laba.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    <% end %>
     <p>
     Название<br>
-    <%=f.text_field :title %>
+    <%=f.text_field(:title, {:class=> 'form-control'}) %>
     </p>
 
     <p>
     Текст лабы<br>
-    <%=f.text_area :body %>
+    <%=f.text_area(:body, {:class=> 'form-control'}) %>
     </p>
 
 
     <p>
-    <%=f.submit%>
+    <%=f.submit({:class=> 'btn btn-success'})%>
     </p>
 
-<%end%>
+<% end %>

@@ -4,7 +4,8 @@ class LabsController < ApplicationController
   end
 
   def new
-
+    @laba=Lab.new
+    # @laba=params[:query]
   end
 
   def show
@@ -14,8 +15,14 @@ class LabsController < ApplicationController
   def create
     # render plain: params[:post].inspect
     @laba=Lab.new(labs_params)
-    @laba.save
-    redirect_to @laba
+    if @laba.save
+      redirect_to @laba
+      # puts(@laba.errors.any?)
+    else
+      puts('error', @laba.errors.any?, @laba.errors.full_messages)
+      render :new
+
+    end
   end
 
   private def labs_params
