@@ -20,7 +20,7 @@ class LabsController < ApplicationController
       # puts(@laba.errors.any?)
     else
       puts('error', @laba.errors.any?, @laba.errors.full_messages)
-      render :new
+      render :new, status: :unprocessable_entity
 
     end
   end

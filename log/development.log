@@ -2772,3 +2772,124 @@ Processing by LabsController#index as HTML
 Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 0.2ms | Allocations: 2143)
 
 
+Started GET "/" for 127.0.0.1 at 2024-03-05 08:00:12 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (1.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 149.7ms | Allocations: 10066)
+  Rendered layout layouts/application.html.erb (Duration: 638.3ms | Allocations: 45196)
+Completed 200 OK in 805ms (Views: 669.0ms | ActiveRecord: 8.0ms | Allocations: 55073)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-05 08:00:15 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 87.9ms | Allocations: 2290)
+  Rendered layout layouts/application.html.erb (Duration: 114.1ms | Allocations: 3561)
+Completed 200 OK in 133ms (Views: 131.4ms | ActiveRecord: 0.0ms | Allocations: 3933)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-05 08:00:17 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "labs"=>{"title"=>"", "body"=>""}, "commit"=>"Save Labs"}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 3192)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for an instance of LabsController):
+  
+app/controllers/labs_controller.rb:23:in `create'
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-05 08:00:37 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 284.2ms | Allocations: 501)
+  Rendered layout layouts/application.html.erb (Duration: 427.5ms | Allocations: 1778)
+Completed 200 OK in 484ms (Views: 467.1ms | ActiveRecord: 0.0ms | Allocations: 2051)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-05 08:03:07 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 73.0ms | Allocations: 3647)
+  Rendered layout layouts/application.html.erb (Duration: 203.2ms | Allocations: 19870)
+Completed 200 OK in 219ms (Views: 170.8ms | ActiveRecord: 42.7ms | Allocations: 21465)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-05 08:03:07 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 72.1ms | Allocations: 598)
+  Rendered layout layouts/application.html.erb (Duration: 131.5ms | Allocations: 2047)
+Completed 200 OK in 136ms (Views: 134.5ms | ActiveRecord: 0.2ms | Allocations: 2301)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-05 08:03:09 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 788)
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 2049)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.0ms | Allocations: 2388)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-05 08:03:11 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "labs"=>{"title"=>"", "body"=>""}, "commit"=>"Save Labs"}
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1521)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 2779)
+Completed 422 Unprocessable Entity in 42ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 5233)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-05 08:04:13 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (21.7ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 122.7ms | Allocations: 3627)
+  Rendered layout layouts/application.html.erb (Duration: 287.4ms | Allocations: 19848)
+Completed 200 OK in 374ms (Views: 286.6ms | ActiveRecord: 31.7ms | Allocations: 21451)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-05 08:04:14 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 703)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 1964)
+Completed 200 OK in 74ms (Views: 71.6ms | ActiveRecord: 0.0ms | Allocations: 2304)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-05 08:04:16 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "labs"=>{"title"=>"", "body"=>""}, "commit"=>"Save Labs"}
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 306)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 1563)
+Completed 422 Unprocessable Entity in 18ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4038)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-05 08:05:46 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "labs"=>{"title"=>"", "body"=>""}, "commit"=>"Save Labs"}
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 1850)
+  Rendered layout layouts/application.html.erb (Duration: 74.3ms | Allocations: 17896)
+Completed 422 Unprocessable Entity in 127ms (Views: 90.3ms | ActiveRecord: 4.7ms | Allocations: 24327)
+
+
