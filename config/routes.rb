@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "labs#index", as: 'home'
-  resources :labs
+  resources :labs do
+    resources :comments
+  end
 
 end

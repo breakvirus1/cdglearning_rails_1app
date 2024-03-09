@@ -1,3 +1,8 @@
 
 <h1><%=@laba.title%></h1>
 <p><%=@laba.body%></p>
+<hr>
+<%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+<%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+
+<% end %>

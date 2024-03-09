@@ -1,0 +1,25 @@
+<h2>Редактирование лабы</h2>
+
+<%= form_for @laba, as: :labs, url: lab_path(@laba), method: :patch do |f| %>
+
+    <% if @laba.errors.any? %>
+        <% @laba.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    <% end %>
+    <p>
+    Название<br>
+    <%=f.text_field(:title, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    Текст лабы<br>
+    <%=f.text_area(:body, {:class=> 'form-control'}) %>
+    </p>
+
+
+    <p>
+    <%=f.submit({:class=> 'btn btn-success'})%>
+    </p>
+
+<% end %>

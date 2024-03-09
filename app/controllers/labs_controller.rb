@@ -5,11 +5,31 @@ class LabsController < ApplicationController
 
   def new
     @laba=Lab.new
-    # @laba=params[:query]
+
   end
 
   def show
     @laba=Lab.find(params[:id])
+  end
+
+  def edit
+    @laba=Lab.find(params[:id])
+  end
+
+  def update
+    @laba=Lab.find(params[:id])
+    if @laba.update(labs_params)
+      redirect_to @laba
+    else
+      puts('error', @laba.errors.any?, @laba.errors.full_messages)
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @laba=Lab.find(params[:id]).destroy
+    flash[:success] = "Лаба удалена"
+    redirect_to labs_path, status: :see_other
   end
 
   def create
@@ -17,7 +37,6 @@ class LabsController < ApplicationController
     @laba=Lab.new(labs_params)
     if @laba.save
       redirect_to @laba
-      # puts(@laba.errors.any?)
     else
       puts('error', @laba.errors.any?, @laba.errors.full_messages)
       render :new, status: :unprocessable_entity
