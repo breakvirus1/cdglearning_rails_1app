@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-  belongs_to :laba
+  belongs_to :lab
+  validates :body, presence: true
 end

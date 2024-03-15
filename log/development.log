@@ -5884,3 +5884,2077 @@ Processing by LabsController#index as HTML
 Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.1ms | Allocations: 2151)
 
 
+Started GET "/" for 127.0.0.1 at 2024-03-14 11:30:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (7.5ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 46.0ms | Allocations: 9368)
+  Rendered layout layouts/application.html.erb (Duration: 301.2ms | Allocations: 43879)
+Completed 200 OK in 478ms (Views: 300.9ms | ActiveRecord: 11.5ms | Allocations: 54891)
+
+
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:30:59 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 21.7ms | Allocations: 1584)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 1682)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.2ms | Allocations: 4255)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<h1><%=@laba.title%></h1>
+<p><%=@laba.body%></p>
+<hr>
+<%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+<%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+
+<hr>
+
+<h2>Комменты</h2>
+<%= form_for ([@laba, @laba.comments.build]) %> 
+    <p>
+    Юзер<br>
+    <%=f.text_field(:username, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    Коммент<br>
+    <%=f.text_area(:body, {:class=> 'form-control'}) %>
+    </p>
+
+
+    <p>
+    <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+    </p>
+
+<% end %>
+):
+1:    
+2:    <h1><%=@laba.title%></h1>
+3:    <p><%=@laba.body%></p>
+4:    <hr>
+5:    <%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+6:    <%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+7:    
+8:    <hr>
+9:    
+10:    <h2>Комменты</h2>
+11:    <%= form_for ([@laba, @laba.comments.build]) %> 
+12:        <p>
+13:        Юзер<br>
+14:        <%=f.text_field(:username, {:class=> 'form-control'}) %>
+15:        </p>
+16:    
+17:        <p>
+18:        Коммент<br>
+19:        <%=f.text_area(:body, {:class=> 'form-control'}) %>
+20:        </p>
+21:    
+22:    
+23:        <p>
+24:        <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+25:        </p>
+26:    
+27:    <% end %>
+  
+app/views/labs/show.html.erb:29: syntax error, unexpected `end'
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:31:38 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1202)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1301)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.8ms | Allocations: 7044)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<h1><%=@laba.title%></h1>
+<p><%=@laba.body%></p>
+<hr>
+<%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+<%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+
+<hr>
+
+<h2>Комменты</h2>
+<%= form_for ([@laba, @laba.comments.build]) %> 
+    <p>
+    Юзер<br>
+    <%=f.text_field(:username, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    Коммент<br>
+    <%=f.text_area(:body, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+    </p>
+
+<% end %>
+):
+1:    
+2:    <h1><%=@laba.title%></h1>
+3:    <p><%=@laba.body%></p>
+4:    <hr>
+5:    <%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+6:    <%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+7:    
+8:    <hr>
+9:    
+10:    <h2>Комменты</h2>
+11:    <%= form_for ([@laba, @laba.comments.build]) %> 
+12:        <p>
+13:        Юзер<br>
+14:        <%=f.text_field(:username, {:class=> 'form-control'}) %>
+15:        </p>
+16:    
+17:        <p>
+18:        Коммент<br>
+19:        <%=f.text_area(:body, {:class=> 'form-control'}) %>
+20:        </p>
+21:    
+22:        <p>
+23:        <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+24:        </p>
+25:    
+26:    <% end %>
+  
+app/views/labs/show.html.erb:28: syntax error, unexpected `end'
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:32:25 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 63.9ms | Allocations: 12921)
+  Rendered layout layouts/application.html.erb (Duration: 64.6ms | Allocations: 13013)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 6.0ms | Allocations: 18721)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+     8: <hr>
+     9: 
+    10: <h2>Комменты</h2>
+    11: <%= form_for ([@laba, @laba.comments.build]) %> 
+    12:     <p>
+    13:     Юзер<br>
+    14:     <%=f.text_field(:username, {:class=> 'form-control'}) %>
+  
+app/views/labs/show.html.erb:11
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:35:58 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1287)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 1378)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.3ms | Allocations: 1978)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+     8: <hr>
+     9: 
+    10: <h2>Комменты</h2>
+    11: <%= form_for ([@laba, @laba.comments.build]) %> 
+    12:     <p>
+    13:     Юзер<br>
+    14:     <%=f.text_field(:username, {:class=> 'form-control'}) %>
+  
+app/views/labs/show.html.erb:11
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:37:59 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3087)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 3179)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 7.4ms | Allocations: 8895)
+
+
+  
+ActionView::Template::Error (Missing block):
+     8: <hr>
+     9: 
+    10: <h2>Комменты</h2>
+    11: <%= form_for ([@laba, @laba.comments]) %> 
+    12:     <p>
+    13:     Юзер<br>
+    14:     <%=f.text_field(:username, {:class=> 'form-control'}) %>
+  
+app/views/labs/show.html.erb:11
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:43:51 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 297)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 16504)
+Completed 200 OK in 58ms (Views: 36.4ms | ActiveRecord: 9.9ms | Allocations: 22242)
+
+
+Started GET "/labs/8/edit" for 127.0.0.1 at 2024-03-14 11:43:54 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:16:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/edit.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1395)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 2662)
+Completed 200 OK in 21ms (Views: 15.9ms | ActiveRecord: 0.1ms | Allocations: 3335)
+
+
+Started GET "/labs/8/edit" for 127.0.0.1 at 2024-03-14 11:43:55 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:16:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/edit.html.erb within layouts/application (Duration: 1.4ms | Allocations: 532)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 1799)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 2404)
+
+
+Started PATCH "/labs/8" for 127.0.0.1 at 2024-03-14 11:43:56 +0300
+Processing by LabsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "labs"=>{"title"=>"erteq23", "body"=>"erugheriuieruuerhi"}, "commit"=>"Update Lab", "id"=>"8"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:20:in `update'
+Redirected to http://127.0.0.1:3000/labs/8
+Completed 302 Found in 17ms (ActiveRecord: 0.2ms | Allocations: 1546)
+
+
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:43:56 +0300
+Processing by LabsController#show as TURBO_STREAM
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1532)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 2185)
+
+
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:50:29 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (4.7ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1196)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1295)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 6.8ms | Allocations: 6613)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<h1><%=@laba.title%></h1>
+<p><%=@laba.body%></p>
+<hr>
+<%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+<%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+
+<hr>
+
+<h2>Комменты</h2>
+<%= form_for ([@laba, @laba.comments.build]) do |f| %> 
+    <p>
+    Юзер<br>
+    <%=f.text_field(:username, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    Коммент<br>
+    <%=f.text_area(:body, {:class=> 'form-control'}) %>
+    </p>
+
+    <p>
+    <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+    </p>
+
+
+):
+1:    
+2:    <h1><%=@laba.title%></h1>
+3:    <p><%=@laba.body%></p>
+4:    <hr>
+5:    <%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
+6:    <%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
+7:    
+8:    <hr>
+9:    
+10:    <h2>Комменты</h2>
+11:    <%= form_for ([@laba, @laba.comments.build]) do |f| %> 
+12:        <p>
+13:        Юзер<br>
+14:        <%=f.text_field(:username, {:class=> 'form-control'}) %>
+15:        </p>
+16:    
+17:        <p>
+18:        Коммент<br>
+19:        <%=f.text_area(:body, {:class=> 'form-control'}) %>
+20:        </p>
+21:    
+22:        <p>
+23:        <%=f.submit("Добавить коммент", {:class=> 'btn btn-warning'})%>
+24:        </p>
+  
+app/views/labs/show.html.erb:28: syntax error, unexpected end-of-input, expecting `end' or dummy end
+Started GET "/" for 127.0.0.1 at 2024-03-14 11:50:30 +0300
+Started GET "/" for 127.0.0.1 at 2024-03-14 11:50:30 +0300
+Processing by LabsController#index as HTML
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (1.8ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  [1m[36mLab Load (2.6ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 17.3ms | Allocations: 7179)
+  Rendered labs/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 6963)
+  Rendered layout layouts/application.html.erb (Duration: 123.2ms | Allocations: 47661)
+Completed 200 OK in 141ms (Views: 127.4ms | ActiveRecord: 3.4ms | Allocations: 50718)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 146.0ms | Allocations: 57289)
+Completed 200 OK in 157ms (Views: 152.8ms | ActiveRecord: 2.5ms | Allocations: 62988)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-14 11:50:32 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 3210)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 7030)
+Completed 200 OK in 52ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 7865)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-14 11:51:38 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:3
+  Rendered labs/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 3488)
+  Rendered layout layouts/application.html.erb (Duration: 52.7ms | Allocations: 19716)
+Completed 200 OK in 61ms (Views: 51.2ms | ActiveRecord: 5.6ms | Allocations: 21764)
+
+
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:51:39 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 5930)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 6021)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms | Allocations: 7304)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+     8: <hr>
+     9: 
+    10: <h2>Комменты</h2>
+    11: <%= form_for ([@laba, @laba.comments.build]) do |f| %> 
+    12:     <p>
+    13:     Юзер<br>
+    14:     <%=f.text_field(:username, {:class=> 'form-control'}) %>
+  
+app/views/labs/show.html.erb:11
+Started GET "/labs/8" for 127.0.0.1 at 2024-03-14 11:52:52 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 5950)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 6042)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 7.4ms | Allocations: 11749)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+     8: <hr>
+     9: 
+    10: <h2>Комменты</h2>
+    11: <%= form_for ([@laba.comments.build]) do |f| %> 
+    12:     <p>
+    13:     Юзер<br>
+    14:     <%=f.text_field(:username, {:class=> 'form-control'}) %>
+  
+app/views/labs/show.html.erb:11
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "body" text, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_laba_id" ON "comments" ("laba_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "labs"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT NULL, "body" text DEFAULT NULL, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_laba_id" ON "acomments" ("laba_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomments" ("id","username","body","laba_id","created_at","updated_at")
+                     SELECT "id","username","body","laba_id","created_at","updated_at" FROM "comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT NULL, "body" text DEFAULT NULL, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ee8aa05b33"
+FOREIGN KEY ("laba_id")
+  REFERENCES "labas" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_laba_id" ON "comments" ("laba_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("id","username","body","laba_id","created_at","updated_at")
+                     SELECT "id","username","body","laba_id","created_at","updated_at" FROM "acomments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 09:56:46 +0300
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20240223071330_create_labs.rb
+db/migrate/20240315065449_create_comments.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-03-15 06:57:10.746099', '2024-03-15 06:57:10.746104') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLabs (20240223071330)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 09:57:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20240223071330_create_labs.rb
+db/migrate/20240315065449_create_comments.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-03-15 09:57:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20240223071330_create_labs.rb
+db/migrate/20240315065449_create_comments.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLabs (20240223071330)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 10:00:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20240223071330_create_labs.rb
+db/migrate/20240315065449_create_comments.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/rails/actions" for 127.0.0.1 at 2024-03-15 10:00:33 +0300
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLabs (20240223071330)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  
+StandardError (An error has occurred, this and all later migrations canceled:
+
+SQLite3::SQLException: table "labs" already exists):
+  
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "body" text, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_comments_on_laba_id" ON "comments" ("laba_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "labs"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT NULL, "body" text DEFAULT NULL, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_laba_id" ON "acomments" ("laba_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomments" ("id","username","body","laba_id","created_at","updated_at")
+                     SELECT "id","username","body","laba_id","created_at","updated_at" FROM "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT NULL, "body" text DEFAULT NULL, "laba_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ee8aa05b33"
+FOREIGN KEY ("laba_id")
+  REFERENCES "labas" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_comments_on_laba_id" ON "comments" ("laba_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("id","username","body","laba_id","created_at","updated_at")
+                     SELECT "id","username","body","laba_id","created_at","updated_at" FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-03-15 08:03:44.065737', '2024-03-15 08:03:44.065743') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLabs (20240223071330)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "labs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240223071330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (20240315065449)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "parent_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240315065449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 11:04:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 2708)
+  Rendered layout layouts/application.html.erb (Duration: 180.1ms | Allocations: 37113)
+Completed 200 OK in 224ms (Views: 185.2ms | ActiveRecord: 2.3ms | Allocations: 47007)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:04:11 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 31.7ms | Allocations: 2372)
+  Rendered labs/new.html.erb within layouts/application (Duration: 37.0ms | Allocations: 2694)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 3972)
+Completed 200 OK in 127ms (Views: 43.7ms | ActiveRecord: 0.9ms | Allocations: 12786)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:04:12 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 606)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1870)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 2134)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:04:13 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.1ms | Allocations: 736)
+  Rendered labs/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 815)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2078)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2348)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-15 11:06:50 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1204)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 17317)
+Completed 200 OK in 53ms (Views: 46.9ms | ActiveRecord: 3.5ms | Allocations: 19059)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:06:53 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 597)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1864)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 2122)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:06:55 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 603)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 1867)
+Completed 200 OK in 45ms (Views: 40.9ms | ActiveRecord: 0.2ms | Allocations: 2125)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:07:34 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.6ms | Allocations: 1143)
+  Rendered labs/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1429)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2692)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 0.6ms | Allocations: 5510)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-15 11:07:40 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"", "body"=>""}, "commit"=>"Create Lab"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:27:in `block in create'
+  [1m[36mLab Create (5.3ms)[0m  [1m[32mINSERT INTO "labs" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", ""], ["body", ""], ["created_at", "2024-03-15 08:07:40.740681"], ["updated_at", "2024-03-15 08:07:40.740681"]]
+  ↳ app/controllers/labs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/labs/1
+Completed 302 Found in 16ms (ActiveRecord: 7.4ms | Allocations: 3375)
+
+
+Started GET "/labs/1" for 127.0.0.1 at 2024-03-15 11:07:40 +0300
+Processing by LabsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:63:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 1.0ms | Allocations: 182)
+  Rendered labs/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1247)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 2518)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 5122)
+
+
+Started DELETE "/labs/1" for 127.0.0.1 at 2024-03-15 11:07:42 +0300
+Processing by LabsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:63:in `set_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mLab Destroy (2.5ms)[0m  [1m[31mDELETE FROM "labs" WHERE "labs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/labs
+Completed 302 Found in 41ms (ActiveRecord: 3.2ms | Allocations: 2081)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:07:42 +0300
+Processing by LabsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:6
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 1892)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 2154)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:13:20 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 6.0ms | Allocations: 1176)
+  Rendered labs/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1466)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | Allocations: 17625)
+Completed 200 OK in 63ms (Views: 44.8ms | ActiveRecord: 0.0ms | Allocations: 21548)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:13:20 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1706)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1804)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2222)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Labs</h1>
+
+<%# <div id="labs">
+  <% @labs.each do |lab| %>
+    <%= render lab %>
+    <p>
+      <%= link_to "Подробнее", lab %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Новая лаба", new_lab_path %> %>
+
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<hr>
+<% @posts.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+      <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+      <%= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+    </div>
+  </div>
+<% end %>
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Labs</h1>
+4:    
+5:    <%# <div id="labs">
+6:      <% @labs.each do |lab| %>
+7:        <%= render lab %>
+8:        <p>
+9:          <%= link_to "Подробнее", lab %>
+10:        </p>
+11:      <% end %>
+12:    </div>
+13:    
+14:    <%= link_to "Новая лаба", new_lab_path %> %>
+15:    
+16:    <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+17:    <hr>
+18:    <% @posts.each do |post| %>
+19:      <div class="card">
+20:        <div class="card-body">
+21:          <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+22:          <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+23:          <%= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+24:        </div>
+25:      </div>
+26:    <% end %>
+  
+app/views/labs/index.html.erb:28: syntax error, unexpected `end'
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:13:22 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1308)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1435)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 2449)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Labs</h1>
+
+<%# <div id="labs">
+  <% @labs.each do |lab| %>
+    <%= render lab %>
+    <p>
+      <%= link_to "Подробнее", lab %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Новая лаба", new_lab_path %> %>
+
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<hr>
+<% @posts.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+      <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+      <%= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+    </div>
+  </div>
+<% end %>
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Labs</h1>
+4:    
+5:    <%# <div id="labs">
+6:      <% @labs.each do |lab| %>
+7:        <%= render lab %>
+8:        <p>
+9:          <%= link_to "Подробнее", lab %>
+10:        </p>
+11:      <% end %>
+12:    </div>
+13:    
+14:    <%= link_to "Новая лаба", new_lab_path %> %>
+15:    
+16:    <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+17:    <hr>
+18:    <% @posts.each do |post| %>
+19:      <div class="card">
+20:        <div class="card-body">
+21:          <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+22:          <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+23:          <%= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+24:        </div>
+25:      </div>
+26:    <% end %>
+  
+app/views/labs/index.html.erb:28: syntax error, unexpected `end'
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:01 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1347)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1439)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 3221)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_post_path' for an instance of #<Class:0x00007f1ec1e57e50>):
+    2: 
+    3: <h1>Лабы</h1>
+    4: 
+    5: <%= link_to 'Новая лаба', new_post_path, class: 'btn btn-primary' %>
+    6: <hr>
+    7: <% @posts.each do |post| %>
+    8:   <div class="card">
+  
+app/views/labs/index.html.erb:5
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:14 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 1544)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 3327)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    4: 
+    5: <%= link_to 'Новая лаба', new_lab_path, class: 'btn btn-primary' %>
+    6: <hr>
+    7: <% @posts.each do |post| %>
+    8:   <div class="card">
+    9:     <div class="card-body">
+   10:       <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+  
+app/views/labs/index.html.erb:7
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:29 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1447)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 1539)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 3320)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    4: 
+    5: <%= link_to 'Новая лаба', new_lab_path, class: 'btn btn-primary' %>
+    6: <hr>
+    7: <% @laba.each do |post| %>
+    8:   <div class="card">
+    9:     <div class="card-body">
+   10:       <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+  
+app/views/labs/index.html.erb:7
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:31 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  Rendered labs/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1199)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1290)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1526)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    4: 
+    5: <%= link_to 'Новая лаба', new_lab_path, class: 'btn btn-primary' %>
+    6: <hr>
+    7: <% @laba.each do |post| %>
+    8:   <div class="card">
+    9:     <div class="card-body">
+   10:       <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+  
+app/views/labs/index.html.erb:7
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:40 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1207)
+  Rendered layout layouts/application.html.erb (Duration: 79.1ms | Allocations: 17330)
+Completed 200 OK in 93ms (Views: 79.3ms | ActiveRecord: 7.8ms | Allocations: 19135)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:16:42 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.5ms | Allocations: 1181)
+  Rendered labs/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1463)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 2733)
+Completed 200 OK in 18ms (Views: 9.4ms | ActiveRecord: 0.5ms | Allocations: 5533)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-15 11:16:46 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"534", "body"=>"454545457"}, "commit"=>"Create Lab"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mLab Create (1.2ms)[0m  [1m[32mINSERT INTO "labs" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "534"], ["body", "454545457"], ["created_at", "2024-03-15 08:16:46.985673"], ["updated_at", "2024-03-15 08:16:46.985673"]]
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/labs/2
+Completed 302 Found in 22ms (ActiveRecord: 11.6ms | Allocations: 2100)
+
+
+Started GET "/labs/2" for 127.0.0.1 at 2024-03-15 11:16:47 +0300
+Processing by LabsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.7ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.5ms | Allocations: 170)
+  Rendered labs/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 987)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2256)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.7ms | Allocations: 3646)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:16:49 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1631)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1722)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1965)
+
+
+  
+ActionView::Template::Error (undefined method `post_path' for an instance of #<Class:0x00007f1ec0102580>):
+     7: <% @labs.each do |post| %>
+     8:   <div class="card">
+     9:     <div class="card-body">
+    10:       <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> # changed title to a link to show the post
+    11:       <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+    12:       <%= link_to 'Редактировать', edit_post_path(post), class: 'card-link' %>
+    13:     </div>
+  
+app/views/labs/index.html.erb:10
+app/views/labs/index.html.erb:7
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:27:49 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (1.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 4294)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4386)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.1ms | Allocations: 6167)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for an instance of #<Class:0x00007f1e83ce9930>):
+     9:     <div class="card-body">
+    10:       <h5 class="card-title"><%= link_to post.title, lab_path(post) %></h5> # changed title to a link to show the post
+    11:       <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+    12:       <%= link_to 'Редактировать', edit_post_path(post), class: 'card-link' %>
+    13:     </div>
+    14:   </div>
+    15: <% end %>
+  
+app/views/labs/index.html.erb:12
+app/views/labs/index.html.erb:7
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:28:00 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3780)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 19916)
+Completed 200 OK in 37ms (Views: 28.8ms | ActiveRecord: 4.7ms | Allocations: 21720)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:28:11 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3773)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 19917)
+Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 3.8ms | Allocations: 21721)
+
+
+Started GET "/labs/2" for 127.0.0.1 at 2024-03-15 11:28:13 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 1.1ms | Allocations: 170)
+  Rendered labs/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 2224)
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 3562)
+
+
+Started DELETE "/labs/2" for 127.0.0.1 at 2024-03-15 11:28:17 +0300
+Processing by LabsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+  [1m[36mLab Destroy (1.1ms)[0m  [1m[31mDELETE FROM "labs" WHERE "labs"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+Redirected to http://127.0.0.1:3000/labs
+Completed 302 Found in 17ms (ActiveRecord: 9.0ms | Allocations: 2037)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:28:17 +0300
+Processing by LabsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 600)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1864)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 2169)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:28:18 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.0ms | Allocations: 1112)
+  Rendered labs/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1389)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 2652)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2992)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:28:19 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.8ms | Allocations: 758)
+  Rendered labs/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 838)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2101)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 2365)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:28:20 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 603)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 1867)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 2126)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:28:21 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 2.2ms | Allocations: 752)
+  Rendered labs/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 832)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2095)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 2359)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:38:35 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.1ms | Allocations: 1194)
+  Rendered labs/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1486)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 17617)
+Completed 200 OK in 34ms (Views: 27.1ms | ActiveRecord: 0.0ms | Allocations: 21499)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:38:36 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (1.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1088)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2352)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 2.2ms | Allocations: 2744)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:38:37 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 600)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 1864)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 2122)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:42:13 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.7ms | Allocations: 1182)
+  Rendered labs/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1474)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 17611)
+Completed 200 OK in 51ms (Views: 37.7ms | ActiveRecord: 3.9ms | Allocations: 22120)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:42:14 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 2.7ms | Allocations: 731)
+  Rendered labs/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 811)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2074)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 2336)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:42:15 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 2.7ms | Allocations: 734)
+  Rendered labs/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 814)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 2077)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 2339)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:42:15 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 872)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2136)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 2528)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:42:17 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 6.9ms | Allocations: 746)
+  Rendered labs/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2089)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 2353)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:53:40 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 11.7ms | Allocations: 1281)
+  Rendered labs/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1573)
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 17716)
+Completed 200 OK in 53ms (Views: 45.1ms | ActiveRecord: 0.0ms | Allocations: 21598)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:58:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 12.0ms | Allocations: 2281)
+  Rendered labs/new.html.erb within layouts/application (Duration: 13.8ms | Allocations: 2728)
+  Rendered layout layouts/application.html.erb (Duration: 165.7ms | Allocations: 37028)
+Completed 200 OK in 256ms (Views: 172.7ms | ActiveRecord: 3.2ms | Allocations: 54717)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-15 11:58:57 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"323", "body"=>"54y54y54y54y"}, "commit"=>"Create Lab"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 671)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.1.3) lib/action_controller/metal/request_forgery_protection.rb:293:in `handle_unverified_request'
+actionpack (7.1.3) lib/action_controller/metal/request_forgery_protection.rb:388:in `handle_unverified_request'
+actionpack (7.1.3) lib/action_controller/metal/request_forgery_protection.rb:377:in `verify_authenticity_token'
+activesupport (7.1.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9) lib/rack/etag.rb:29:in `call'
+rack (3.0.9) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:58:58 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 4.3ms | Allocations: 624)
+  Rendered labs/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 704)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 1983)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 2251)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:58:59 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2030)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3294)
+Completed 200 OK in 28ms (Views: 16.9ms | ActiveRecord: 0.4ms | Allocations: 4690)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:59:00 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.9ms | Allocations: 726)
+  Rendered labs/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 806)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2069)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2338)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-15 11:59:06 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"dr34t", "body"=>"4u54u654u65u6"}, "commit"=>"Create Lab"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mLab Create (2.6ms)[0m  [1m[32mINSERT INTO "labs" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "dr34t"], ["body", "4u54u654u65u6"], ["created_at", "2024-03-15 08:59:06.519808"], ["updated_at", "2024-03-15 08:59:06.519808"]]
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/labs/3
+Completed 302 Found in 21ms (ActiveRecord: 14.5ms | Allocations: 3393)
+
+
+Started GET "/labs/3" for 127.0.0.1 at 2024-03-15 11:59:06 +0300
+Processing by LabsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.9ms | Allocations: 182)
+  Rendered labs/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1181)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 2462)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 0.2ms | Allocations: 5064)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 11:59:17 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 684)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 1949)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 2213)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:59:23 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 1.7ms | Allocations: 752)
+  Rendered labs/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 832)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2096)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 2360)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 11:59:25 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 2.3ms | Allocations: 740)
+  Rendered labs/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 820)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2086)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2350)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:07:54 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (13.7ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 81.9ms | Allocations: 3383)
+  Rendered layout layouts/application.html.erb (Duration: 133.0ms | Allocations: 19483)
+Completed 200 OK in 150ms (Views: 123.5ms | ActiveRecord: 16.3ms | Allocations: 21288)
+
+
+Started GET "/labs/3" for 127.0.0.1 at 2024-03-15 12:07:56 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 1.1ms | Allocations: 170)
+  Rendered labs/show.html.erb within layouts/application (Duration: 11.9ms | Allocations: 960)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 2234)
+Completed 200 OK in 27ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 3574)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:07:57 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 692)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1956)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 2214)
+
+
+Started DELETE "/labs/3" for 127.0.0.1 at 2024-03-15 12:07:58 +0300
+Processing by LabsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+  [1m[36mLab Destroy (2.4ms)[0m  [1m[31mDELETE FROM "labs" WHERE "labs"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:53:in `destroy'
+Redirected to http://127.0.0.1:3000/labs
+Completed 302 Found in 12ms (ActiveRecord: 4.1ms | Allocations: 2115)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:07:58 +0300
+Processing by LabsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 621)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 1885)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 2190)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 12:07:59 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 11.8ms | Allocations: 1110)
+  Rendered labs/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 1391)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 2669)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 3011)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 12:16:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 2745)
+  Rendered layout layouts/application.html.erb (Duration: 139.9ms | Allocations: 36402)
+Completed 200 OK in 201ms (Views: 144.7ms | ActiveRecord: 2.5ms | Allocations: 47609)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 12:16:51 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 15.0ms | Allocations: 2071)
+  Rendered labs/new.html.erb within layouts/application (Duration: 30.9ms | Allocations: 2395)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 3673)
+Completed 200 OK in 94ms (Views: 36.5ms | ActiveRecord: 0.6ms | Allocations: 11974)
+
+
+Started POST "/labs" for 127.0.0.1 at 2024-03-15 12:16:55 +0300
+Processing by LabsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "lab"=>{"title"=>"rerery", "body"=>"iryiyuotyuotyup"}, "commit"=>"Create Lab"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mLab Create (1.9ms)[0m  [1m[32mINSERT INTO "labs" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "rerery"], ["body", "iryiyuotyuotyup"], ["created_at", "2024-03-15 09:16:55.407390"], ["updated_at", "2024-03-15 09:16:55.407390"]]
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/labs_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/labs/4
+Completed 302 Found in 10ms (ActiveRecord: 3.5ms | Allocations: 3602)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:16:55 +0300
+Processing by LabsController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.5ms | Allocations: 182)
+  Rendered labs/show.html.erb within layouts/application (Duration: 31.0ms | Allocations: 10393)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 10484)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.9ms | Allocations: 13087)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+     8:   <%= button_to "Удалить", @lab, method: :delete %>
+     9: </div>
+    10: <hr>
+    11:     <%= form_with(model: [@lab, @lab.comments.build]) do |f| %>
+    12:       <div class="form-group">
+    13:         <%= f.label 'Новый коммент' %>
+    14:         <%= f.text_area :body, class: 'form-control' %>
+  
+app/views/labs/show.html.erb:11
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:19:39 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3799)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 19894)
+Completed 200 OK in 32ms (Views: 25.7ms | ActiveRecord: 2.5ms | Allocations: 22156)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:19:41 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 7.5ms | Allocations: 172)
+  Rendered labs/show.html.erb within layouts/application (Duration: 24.2ms | Allocations: 6426)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 6517)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.9ms | Allocations: 7854)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+    11: <div class="card my-1"> 
+    12:   <div class="card-body">
+    13:     <p class="font-weight-bold">Комменты к лабе</p>
+    14:     <%= form_with(model: [@lab, @lab.comments.build]) do |f| %>
+    15:       <div class="form-group">
+    16:         <%= f.label 'Новый коммент' %>
+    17:         <%= f.text_area :body, class: 'form-control' %>
+  
+app/views/labs/show.html.erb:14
+Started GET "/labs/4/edit" for 127.0.0.1 at 2024-03-15 12:19:42 +0300
+Processing by LabsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.4ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/edit.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 6.2ms | Allocations: 1154)
+  Rendered labs/edit.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1554)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 2838)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.4ms | Allocations: 3529)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:19:43 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered labs/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1649)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1740)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2327)
+
+
+  
+ActionView::Template::Error (unknown attribute 'lab_id' for Comment.):
+    11: <div class="card my-1"> 
+    12:   <div class="card-body">
+    13:     <p class="font-weight-bold">Комменты к лабе</p>
+    14:     <%= form_with(model: [@lab, @lab.comments.build]) do |f| %>
+    15:       <div class="form-group">
+    16:         <%= f.label 'Новый коммент' %>
+    17:         <%= f.text_area :body, class: 'form-control' %>
+  
+app/views/labs/show.html.erb:14
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPostRefToComments (20240315092752)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (1.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text DEFAULT NULL, "post_id" integer DEFAULT NULL, "parent_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "acomments" ("id","body","post_id","parent_id","created_at","updated_at")
+                     SELECT "id","body","post_id","parent_id","created_at","updated_at" FROM "comments"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text DEFAULT NULL, "post_id" integer DEFAULT NULL, "parent_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "lab_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("id","body","post_id","parent_id","created_at","updated_at")
+                     SELECT "id","body","post_id","parent_id","created_at","updated_at" FROM "acomments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_lab_id" ON "comments" ("lab_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text DEFAULT NULL, "post_id" integer DEFAULT NULL, "parent_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "lab_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_lab_id" ON "acomments" ("lab_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomments" ("id","body","post_id","parent_id","created_at","updated_at","lab_id")
+                     SELECT "id","body","post_id","parent_id","created_at","updated_at","lab_id" FROM "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text DEFAULT NULL, "post_id" integer DEFAULT NULL, "parent_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "lab_id" integer NOT NULL, CONSTRAINT "fk_rails_ddb432d1d4"
+FOREIGN KEY ("lab_id")
+  REFERENCES "labs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_comments_on_lab_id" ON "comments" ("lab_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("id","body","post_id","parent_id","created_at","updated_at","lab_id")
+                     SELECT "id","body","post_id","parent_id","created_at","updated_at","lab_id" FROM "acomments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240315092752') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-03-15 12:28:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 52.9ms | Allocations: 9702)
+  Rendered layout layouts/application.html.erb (Duration: 210.3ms | Allocations: 43978)
+Completed 200 OK in 299ms (Views: 220.3ms | ActiveRecord: 3.0ms | Allocations: 55160)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 12:28:48 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 26.8ms | Allocations: 3052)
+  Rendered labs/new.html.erb within layouts/application (Duration: 38.4ms | Allocations: 3375)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 4643)
+Completed 200 OK in 49ms (Views: 46.2ms | ActiveRecord: 0.0ms | Allocations: 5014)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:28:48 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.8ms | Allocations: 181)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 5.6ms | Allocations: 287)
+  Rendered labs/show.html.erb within layouts/application (Duration: 160.3ms | Allocations: 14056)
+  Rendered layout layouts/application.html.erb (Duration: 169.8ms | Allocations: 15326)
+Completed 200 OK in 219ms (Views: 179.6ms | ActiveRecord: 1.1ms | Allocations: 17910)
+
+
+Started POST "/labs/4/comments" for 127.0.0.1 at 2024-03-15 12:29:00 +0300
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"lp[le[reyreu"}, "commit"=>"Добавить", "lab_id"=>"4"}
+Completed 404 Not Found in 3ms (ActiveRecord: 0.0ms | Allocations: 922)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Lab without an ID):
+  
+app/controllers/comments_controller.rb:24:in `create'
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:29:01 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.5ms | Allocations: 69)
+  Rendered labs/show.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1513)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 2798)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 3415)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:29:06 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.3ms | Allocations: 69)
+  Rendered labs/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1531)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 2800)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms | Allocations: 3420)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 12:29:08 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.6ms | Allocations: 739)
+  Rendered labs/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 819)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2082)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 2351)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:29:09 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.4ms | Allocations: 69)
+  Rendered labs/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1526)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 2810)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 0.3ms | Allocations: 3425)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:44:52 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (2.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 3385)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 19538)
+Completed 200 OK in 53ms (Views: 45.0ms | ActiveRecord: 3.7ms | Allocations: 21797)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:44:52 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.5ms | Allocations: 170)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 1.7ms | Allocations: 255)
+  Rendered labs/show.html.erb within layouts/application (Duration: 34.7ms | Allocations: 7971)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 9246)
+Completed 200 OK in 48ms (Views: 41.6ms | ActiveRecord: 0.5ms | Allocations: 10580)
+
+
+Started GET "/labs/new" for 127.0.0.1 at 2024-03-15 12:44:54 +0300
+Processing by LabsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/new.html.erb within layouts/application
+  Rendered labs/_form.html.erb (Duration: 3.1ms | Allocations: 1094)
+  Rendered labs/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1371)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2634)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 2975)
+
+
+Started GET "/labs" for 127.0.0.1 at 2024-03-15 12:44:54 +0300
+Processing by LabsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering labs/index.html.erb within layouts/application
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs"[0m
+  ↳ app/views/labs/index.html.erb:7
+  Rendered labs/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 688)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 1953)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 2211)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:44:55 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.2ms | Allocations: 69)
+  Rendered labs/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1515)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 2784)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 3393)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:45:01 +0300
+Processing by LabsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.3ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."lab_id" = ?[0m  [["lab_id", 4]]
+  ↳ app/views/labs/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.8ms | Allocations: 69)
+  Rendered labs/show.html.erb within layouts/application (Duration: 25.0ms | Allocations: 1461)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 2730)
+Completed 200 OK in 61ms (Views: 50.3ms | ActiveRecord: 0.4ms | Allocations: 5373)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:45:49 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.2ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.7ms | Allocations: 178)
+  Rendered labs/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 6746)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 22835)
+Completed 200 OK in 67ms (Views: 42.9ms | ActiveRecord: 4.9ms | Allocations: 28797)
+
+
+Started GET "/labs/4" for 127.0.0.1 at 2024-03-15 12:45:55 +0300
+Processing by LabsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLab Load (0.1ms)[0m  [1m[34mSELECT "labs".* FROM "labs" WHERE "labs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/labs_controller.rb:64:in `set_lab'
+  Rendering layout layouts/application.html.erb
+  Rendering labs/show.html.erb within layouts/application
+  Rendered labs/_lab.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered labs/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 915)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2184)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 2793)
+
+
