@@ -2,7 +2,6 @@
   <% if comment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
       <ul>
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -17,8 +16,8 @@
   </div>
 
   <div>
-    <%= form.label :post_id, style: "display: block" %>
-    <%= form.number_field :post_id %>
+    <%= form.label :lab_id, style: "display: block" %>
+    <%= form.number_field :lab_id %>
   </div>
 
   <div>

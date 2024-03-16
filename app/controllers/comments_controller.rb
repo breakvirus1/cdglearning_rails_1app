@@ -12,7 +12,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @lab= Lab.find(params[:lab_id])
+
+    @comment = @lab.comments.new(parent_id: params[:parent_id])
+
   end
 
   # GET /comments/1/edit
@@ -21,15 +24,16 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @lab = Lab.find(params[:post_id])
+    @lab = Lab.find(params[:lab_id])
     @comment = @lab.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: 'Коммент добавлен' }
+        format.html { redirect_to @lab, notice: 'Коммент добавлен' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        puts('not added')
       end
     end
   end
@@ -65,6 +69,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :post_id, :parent_id)
+      params.require(:comment).permit(:body, :lab_id, :parent_id)
     end
 end
