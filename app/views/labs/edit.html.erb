@@ -1,11 +1,11 @@
-<h1>Editing lab</h1>
+<h1>Редактирование лабы</h1>
 
 <%= render "form", lab: @lab %>
 
 <br>
 
 <div>
-  <%= link_to "Подробнее", @lab %> 
-  <%= link_to 'Удалить', @lab, method: :delete, data: { confirm: 'Уверен?' }, class: 'btn btn-danger mr-2' %>
+  <%= link_to "Показать комменты", @lab %> |
+  <%= link_to 'Удалить', @lab, method: :delete, data: { confirm: 'Уверен?' }%>|
   <%= link_to "Назад", labs_path %>
 </div>

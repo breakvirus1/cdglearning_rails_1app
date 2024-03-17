@@ -24,6 +24,7 @@ class LabsController < ApplicationController
   def create
     @lab = Lab.new(lab_params)
 
+
     respond_to do |format|
       if @lab.save
         format.html { redirect_to lab_url(@lab), notice: "Лаба создана." }
@@ -66,6 +67,6 @@ class LabsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lab_params
-      params.require(:lab).permit(:title, :body)
+      params.require(:lab).permit(:title, :body, :ocenka)
     end
 end

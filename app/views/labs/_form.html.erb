@@ -22,6 +22,12 @@
   </div>
 
   <div>
+    <%= form.label 'Оценка', style: "display: block" %>
+    <%= form.select :ocenka, ["A", "B", "C", "D", "E", "FX", "F"] %>
+      
+  </div>
+
+  <div>
     <%= form.submit "Создать" %>
   </div>
 <% end %>
