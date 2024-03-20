@@ -1,5 +1,5 @@
 class LabsController < ApplicationController
-  before_action :set_lab, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index]
   # GET /labs or /labs.json
   def index
     @labs = Lab.all

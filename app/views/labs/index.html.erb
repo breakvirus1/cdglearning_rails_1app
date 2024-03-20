@@ -1,8 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Список лаб</h1>
+<% if user_signed_in? %>
 
-<%= link_to 'Новая лаба', new_lab_path, class: 'btn btn-primary' %>
+<%
+=begin%>
+ <%= link_to 'Новая лаба', new_lab_path, class: 'btn btn-primary' %> 
+<%
+=end%>
 <hr>
 <% @labs.each do |post| %>
   <div class="card">
@@ -12,4 +17,16 @@
       <%= link_to 'Редактировать', edit_lab_path(post), class: 'card-link' %>
     </div>
   </div>
+  <% end %>
+<% else %>
+<% @labs.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to post.title, lab_path(post) %></h5> 
+      <p class="card-text"><%= truncate(post.body, length: 60) %></p>
+      <%= link_to 'Редактировать', edit_lab_path(post), class: 'card-link' %>
+    </div>
+  </div>
+
+<% end %>
 <% end %>
