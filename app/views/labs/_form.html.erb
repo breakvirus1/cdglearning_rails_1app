@@ -1,0 +1,34 @@
+<%= form_with(model: lab) do |form| %>
+<%= form.hidden_field :user_id, value: current_user.id %>
+  <% if lab.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(lab.errors.count, "error") %> prohibited this lab from being saved:</h2>
+
+      <ul>
+        <% lab.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label 'Название', style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label 'Содержание', style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label 'Оценка', style: "display: block" %>
+    <%= form.select :ocenka, ["A", "B", "C", "D", "E", "FX", "F"] %>
+      
+  </div>
+
+  <div>
+    <%= form.submit "Создать" %>
+  </div>
+<% end %>

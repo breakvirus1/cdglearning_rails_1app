@@ -1,50 +1,85 @@
 class LabsController < ApplicationController
+  before_action :set_lab, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :authorize_user, except: %i[index show]
+  # GET /labs or /labs.json
   def index
-    @laba=Lab.all
+    @labs = Lab.all
   end
 
-  def new
-    @laba=Lab.new
-
-  end
-
+  # GET /labs/1 or /labs/1.json
   def show
-    @laba=Lab.find(params[:id])
+    # @lab = Lab.find(params[:id])
+
+
   end
 
+  # GET /labs/new
+  def new
+    @lab = Lab.new
+  end
+
+  # GET /labs/1/edit
   def edit
-    @laba=Lab.find(params[:id])
+
   end
 
-  def update
-    @laba=Lab.find(params[:id])
-    if @laba.update(labs_params)
-      redirect_to @laba
-    else
-      puts('error', @laba.errors.any?, @laba.errors.full_messages)
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @laba=Lab.find(params[:id]).destroy
-    flash[:success] = "Лаба удалена"
-    redirect_to labs_path, status: :see_other
-  end
-
+  # POST /labs or /labs.json
   def create
-    # render plain: params[:post].inspect
-    @laba=Lab.new(labs_params)
-    if @laba.save
-      redirect_to @laba
-    else
-      puts('error', @laba.errors.any?, @laba.errors.full_messages)
-      render :new, status: :unprocessable_entity
+    @lab = Lab.new(lab_params)
 
+
+    respond_to do |format|
+      if @lab.save
+        format.html { redirect_to lab_url(@lab), notice: "Лаба создана." }
+        format.json { render :show, status: :created, location: @lab }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @lab.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  private def labs_params
-    params.require(:labs).permit(:title, :body)
+  # PATCH/PUT /labs/1 or /labs/1.json
+  def update
+    # respond_to do |format|
+    #   if @lab.update(lab_params)
+    #     format.html { redirect_to lab_url(@lab), notice: "Лаба обновлена." }
+    #     format.json { render :show, status: :ok, location: @lab }
+    #   else
+    #     format.html { render :edit, status: :unprocessable_entity }
+    #     format.json { render json: @lab.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    @lab = Lab.find(params[:id])
+    if @lab.update(post_params)
+      # redirect_to @lab
+      format.html { redirect_to lab_url(@lab), notice: "Лаба обновлена." }
+    else
+      render :edit
+    end
+
   end
+
+  # DELETE /labs/1 or /labs/1.json
+  def destroy
+    @lab.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to labs_url, notice: "Лаба удалена." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_lab
+      @lab = Lab.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def lab_params
+      params.require(:lab).permit(:title, :body, :ocenka, :user_id)
+    end
 end

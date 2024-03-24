@@ -11,15 +11,51 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <div class="navbar-nav">
-      <%= link_to "Новая лаба", {:controller => :labs, :action => :new }, class: "nav-item nav-link" %>
-      <%= link_to "Список лаб", {:controller => :labs, :action => :index }, class: "nav-item nav-link" %>
-   </div> 
-</nav>
+ <body class="bg-white">
+
+  <% flash.each do |type, message| %>
+    <% if type == "alert" %>
+      <div class="bg-red-500">
+        <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+      </div>
+    <% end %>
+    <% if type == "notice" %>
+      <div class="bg-green-500">
+        <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+    <header class="mb-4">
+      <nav class="flex items-center justify-between flex-wrap bg-gray-100 py-3 lg:px-10 px-3 text-gray-700 border-b border-gray-400">
+        <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
+
+          <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end items-center">
+            <% if user_signed_in? %>
+              <p class="lg:mr-2 px-4">Welcome, <%= current_user.email %></p>
+                  <%= button_to "Logout", destroy_user_session_path, :method => :delete %>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <div class="navbar-nav">
+                      <%= link_to "Новая лаба", new_lab_path, class: "nav-item nav-link" %>
+                      <%= link_to "Список лаб", labs_path, class: "nav-item nav-link" %>
+                  </div> 
+                </nav>
+              <% else %>
+              <%= button_to "Login", new_user_session_path, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
+              <%= button_to "Sign Up", new_user_registration_path, class:"btn btn-default block" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
 
     <%= yield %>
   </body>
 </html>
+
+
+
+

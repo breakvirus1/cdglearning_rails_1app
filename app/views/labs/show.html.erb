@@ -1,7 +1,24 @@
+<p style="color: green"><%= notice %></p>
+<% if @lab.present? %>
 
-<h1><%=@laba.title%></h1>
-<p><%=@laba.body%></p>
+<%= render @lab %>
+<div>
+  <%= link_to "Редактировать", edit_lab_path(@lab) %> |
+  <%= link_to "Назад", labs_path %> |
+  <%= link_to "Удалить", @lab, method: :delete %>
+</div>
 <hr>
-<%= link_to 'Редактировать', edit_lab_path(@laba), :class=>'btn btn-warning'%>
-<%= link_to "delete", lab_path(@laba), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, :class=>'btn btn-danger' %>
-
+<div class="card my-1"> 
+  <div class="card-body">
+    <p class="font-weight-bold">Комменты к лабе</p>
+    <%= form_with(model: [@lab, @lab.comments.build]) do |f| %>
+      <div class="form-group">
+        <%= f.label 'Новый коммент' %>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+      <%= f.submit 'Добавить', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<%= render @lab.comments %>
+<% end %>
