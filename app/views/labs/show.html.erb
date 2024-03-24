@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
+<% if @lab.present? %>
 
 <%= render @lab %>
-
 <div>
   <%= link_to "Редактировать", edit_lab_path(@lab) %> |
   <%= link_to "Назад", labs_path %> |
@@ -21,3 +21,4 @@
   </div>
 </div>
 <%= render @lab.comments %>
+<% end %>

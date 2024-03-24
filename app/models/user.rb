@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  has_many :labs
 attr_accessor :login
 
   # "getter"

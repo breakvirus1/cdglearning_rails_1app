@@ -14,16 +14,15 @@ Rails.application.routes.draw do
 
     end
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-    resources :users do
-
+      puts("NOT AUTH")
+      # root 'devise/sessions#create', as: :new_user_registration
+      root 'new_user_registration#new', as: :unauthenticated_root
     end
   end
 
-# resources :users, :only => [:show]
-  #resources :labs
-  # root "labs#index", as: 'home'
+  # devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "/" }
+
+
   resources :labs do
     resources :comments
   end

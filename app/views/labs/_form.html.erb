@@ -1,4 +1,5 @@
 <%= form_with(model: lab) do |form| %>
+<%= form.hidden_field :user_id, value: current_user.id %>
   <% if lab.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(lab.errors.count, "error") %> prohibited this lab from being saved:</h2>
